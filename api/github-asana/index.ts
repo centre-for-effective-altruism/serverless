@@ -4,7 +4,7 @@ import { requestWrapper } from '../../lib/helpers'
 
 async function handlePost(req: VercelRequest, res: VercelResponse) {
   console.log(req.body)
-  res.end()
+  res.status(204).end()
 }
 
 export default requestWrapper({
