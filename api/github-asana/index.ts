@@ -1,6 +1,12 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
-  const { name } = req.query;
-  res.end(`Hello ${name}!`);
+import { requestWrapper } from '../../lib/helpers'
+
+async function handlePost(req: VercelRequest, res: VercelResponse) {
+  console.log(req.body)
+  res.end()
 }
+
+export default requestWrapper({
+  POST: handlePost,
+})
